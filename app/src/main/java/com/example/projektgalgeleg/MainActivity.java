@@ -1,0 +1,47 @@
+package com.example.projektgalgeleg;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import java.nio.channels.ShutdownChannelGroupException;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    Button playBtn;
+    Button settingBtn;
+    Button exitBtn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        playBtn = (Button) findViewById(R.id.playBtn);
+        settingBtn = (Button) findViewById(R.id.settingBtn);
+        exitBtn = (Button) findViewById(R.id.exitBtn);
+        playBtn.setOnClickListener(this);
+        settingBtn.setOnClickListener(this);
+        exitBtn.setOnClickListener(this);
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if (v == playBtn) {
+            Intent i = new Intent(this, GameActivity.class);
+            startActivity(i);
+        }
+        else if (v == settingBtn) {
+            Intent i = new Intent(this, SettingsActivity.class);
+            startActivity(i);
+        }
+        else if (v == exitBtn) {
+
+        }
+    }
+}

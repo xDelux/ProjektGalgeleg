@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity">
+
+    <ImageView
+        android:id="@+id/galgePicture"
+        android:layout_width="188dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/guessField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/galge" />
+
+    <TextView
+        android:id="@+id/mainGameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Galgeleg er i gang!"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/guessWordTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="10dp"
+        android:text="Gæt ordet: "
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/guessedLettersTxt"
+        app:layout_constraintEnd_toEndOf="@+id/guessedLettersTxt" />
+
+    <Button
+        android:id="@+id/guessBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="13dp"
+        android:text="Gæt"
+        app:layout_constraintStart_toStartOf="@+id/guessField"
+        app:layout_constraintTop_toBottomOf="@+id/guessField" />
+
+    <TextView
+        android:id="@+id/gameWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="wordwordword"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/guessedLetters"
+        app:layout_constraintStart_toStartOf="@+id/guessedLetters" />
+
+    <EditText
+        android:id="@+id/guessField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:hint="Gæt bogstav her..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guessedLettersTxt" />
+
+    <TextView
+        android:id="@+id/guessedLettersTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="257dp"
+        android:text="Du har gættet på:"
+        app:layout_constraintEnd_toStartOf="@+id/guessField"
+        app:layout_constraintStart_toStartOf="@+id/guessField"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/guessedLetters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginBottom="7dp"
+        android:text='"bogstavergættet"'
+        app:layout_constraintBottom_toTopOf="@+id/guessField"
+        app:layout_constraintStart_toEndOf="@+id/guessedLettersTxt" />
+</androidx.constraintlayout.widget.ConstraintLayout>
