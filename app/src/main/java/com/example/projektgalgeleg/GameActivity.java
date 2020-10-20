@@ -8,6 +8,7 @@ import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,13 +22,16 @@ import galgeleg.Galgelogik;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
+    int antalFejl;
     galgeleg.Galgelogik galgelogik;
     Button guessBtn;
+    Button restartBtn;
     EditText guessField;
     ArrayList<String> guessedLetters;
     TextView gameWord;
     TextView guessed;
     TextView title;
+    ImageView galgePicture;
     String str;
 
 
@@ -38,23 +42,24 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         guessBtn = (Button) findViewById(R.id.guessBtn);
+        restartBtn = (Button) findViewById(R.id.restartBtn);
         galgelogik = new Galgelogik();
         guessField = (EditText) findViewById(R.id.guessField);
         guessed = findViewById(R.id.guessedLetters);
         gameWord = (TextView) findViewById(R.id.gameWord);
         title = (TextView) findViewById(R.id.mainGameTitle);
+        galgePicture = (ImageView) findViewById(R.id.galgePicture);
         guessedLetters = new ArrayList<>();
 
-
-
+        restartBtn.setVisibility(View.GONE);
         gameWord.setText(galgelogik.getSynligtOrd());
-
         guessBtn.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
+
 
         guessField.setError(null);
         str = guessField.getText().toString();
@@ -87,16 +92,43 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             guessField.setError("Du har gættet på " + str);
             return;
         }
+        update();
+        }
 
-    }
+
     private void update() {
         if(galgelogik.erSpilletVundet()) {
             gameWord.setText(galgelogik.getSynligtOrd());
             title.setText("Du har vundet! Godt gættet!");
+            restartBtn.setVisibility(View.VISIBLE);
         }
         else if(galgelogik.erSpilletTabt()) {
             gameWord.setText(galgelogik.getSynligtOrd());
             title.setText("Du table, ordet var. " + galgelogik.getOrdet());
+            restartBtn.setVisibility(View.VISIBLE);
         }
+
+        antalFejl = galgelogik.getAntalForkerteBogstaver();
+        switch (antalFejl) {
+            case 1:
+                galgePicture.setImageResource(R.drawable.forkert1);
+                break;
+            case 2:
+                galgePicture.setImageResource(R.drawable.forkert2);
+                break;
+            case 3:
+                galgePicture.setImageResource(R.drawable.forkert3);
+                break;
+            case 4:
+                galgePicture.setImageResource(R.drawable.forkert4);
+                break;
+            case 5:
+                galgePicture.setImageResource(R.drawable.forkert5);
+                break;
+            case 6:
+                galgePicture.setImageResource(R.drawable.forkert6);
+                break;
+        }
+
     }
 }
