@@ -92,7 +92,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private void update() {
         if(galgelogik.erSpilletVundet()) {
             gameWord.setText(galgelogik.getSynligtOrd());
-            title.setText("Du har vundet!");
+            title.setText("Du har vundet! Godt gættet!");
         }
         else if(galgelogik.erSpilletTabt()) {
             gameWord.setText(galgelogik.getSynligtOrd());
