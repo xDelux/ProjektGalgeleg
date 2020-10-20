@@ -9,13 +9,13 @@
     <ImageView
         android:id="@+id/galgePicture"
         android:layout_width="188dp"
-        android:layout_height="133dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginBottom="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/guessField"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/gameWord"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainGameTitle"
         app:srcCompat="@drawable/galge" />
 
     <TextView
@@ -46,53 +46,64 @@
 
     <Button
         android:id="@+id/guessBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
         android:text="Gæt"
-        app:layout_constraintStart_toStartOf="@+id/guessField"
-        app:layout_constraintTop_toBottomOf="@+id/guessField" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guessField"
+        app:layout_constraintTop_toTopOf="@+id/guessField" />
 
     <TextView
         android:id="@+id/gameWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:text="wordwordword"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guessedLetters"
-        app:layout_constraintStart_toStartOf="@+id/guessedLetters" />
+        app:layout_constraintStart_toStartOf="@+id/guessedLetters"
+        app:layout_constraintTop_toTopOf="@+id/guessWordTxt" />
 
     <EditText
         android:id="@+id/guessField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="287dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:hint="Gæt bogstav her..."
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guessBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guessedLettersTxt" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/guessedLettersTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="257dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginBottom="12dp"
         android:text="Du har gættet på:"
-        app:layout_constraintEnd_toStartOf="@+id/guessField"
-        app:layout_constraintStart_toStartOf="@+id/guessField"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/guessedLetters"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginBottom="7dp"
-        android:text='"bogstavergættet"'
         app:layout_constraintBottom_toTopOf="@+id/guessField"
-        app:layout_constraintStart_toEndOf="@+id/guessedLettersTxt" />
+        app:layout_constraintEnd_toStartOf="@+id/guessedLetters"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/guessedLetters"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginRight="142dp"
+        android:layout_marginBottom="11dp"
+        android:background="@color/colorAccent"
+        android:text='"bogstavergættet"'
+        app:layout_constraintBottom_toTopOf="@+id/guessBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guessedLettersTxt"
+        app:layout_constraintTop_toBottomOf="@+id/gameWord" />
 </androidx.constraintlayout.widget.ConstraintLayout>
