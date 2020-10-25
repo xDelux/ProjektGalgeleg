@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,113 +8,113 @@
 
     <ImageView
         android:id="@+id/galgePicture"
-        android:layout_width="188dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="19dp"
-        app:layout_constraintBottom_toTopOf="@+id/gameWord"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainGameTitle"
-        app:srcCompat="@drawable/galge" />
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="124dp"
+        android:layout_marginLeft="124dp"
+        android:layout_marginTop="102dp"
+        android:foregroundGravity=""
+        app:srcCompat="@drawable/galge"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="60dp" />
 
     <TextView
         android:id="@+id/mainGameTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="382dp"
+        android:layout_height="78dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="18dp"
         android:gravity="center"
         android:text="Galgeleg er i gang!"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/guessWordTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:text="Gæt ordet: "
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guessedLettersTxt"
-        app:layout_constraintEnd_toEndOf="@+id/guessedLettersTxt" />
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="4dp" />
 
     <Button
         android:id="@+id/guessBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="54dp"
-        android:layout_marginRight="54dp"
+        android:layout_width="128dp"
+        android:layout_height="57dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="374dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
         android:text="Gæt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guessField"
-        app:layout_constraintTop_toTopOf="@+id/guessField" />
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="327dp" />
 
     <TextView
         android:id="@+id/gameWord"
-        android:layout_width="wrap_content"
+        android:layout_width="354dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginLeft="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="257dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:gravity="center_horizontal"
         android:text="wordwordword"
+        android:textAlignment="center"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/guessWordTxt"
-        app:layout_constraintTop_toTopOf="@+id/guessWordTxt" />
+        android:textSize="32dp"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="202dp" />
 
     <EditText
         android:id="@+id/guessField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginTop="287dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
+        android:layout_width="162dp"
+        android:layout_height="57dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="118dp"
+        android:layout_marginLeft="118dp"
+        android:layout_marginTop="306dp"
         android:hint="Gæt bogstav her..."
-        app:layout_constraintEnd_toStartOf="@+id/guessBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="257dp" />
 
     <TextView
         android:id="@+id/guessedLettersTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="73dp"
-        android:layout_marginLeft="73dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
-        android:layout_marginBottom="10dp"
-        android:text="Du har gættet på:"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="221dp"
+        android:text="Dine gæt:"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guessField"
-        app:layout_constraintEnd_toStartOf="@+id/guessedLetters"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/guessedLetters"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
         android:id="@+id/guessedLetters"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="87dp"
+        android:layout_height="51dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="305dp"
+        android:layout_marginRight="305dp"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guessBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guessedLettersTxt"
-        app:layout_constraintTop_toBottomOf="@+id/gameWord" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp" />
 
-    <Button
-        android:id="@+id/restartBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:text="Genstart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guessBtn" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

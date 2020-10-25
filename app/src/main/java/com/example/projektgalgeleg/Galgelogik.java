@@ -20,16 +20,42 @@ public class Galgelogik {
     private boolean spilletErVundet;
     private boolean spilletErTabt;
 
-    public Galgelogik() {
-        muligeOrd.add("bil");
-        muligeOrd.add("computer");
-        muligeOrd.add("programmering");
-        muligeOrd.add("motorvej");
-        muligeOrd.add("busrute");
-        muligeOrd.add("gangsti");
-        muligeOrd.add("skovsnegl");
-        muligeOrd.add("solsort");
-        muligeOrd.add("tyve");
+    public Galgelogik(int sværhedsgrad) {
+        if (sværhedsgrad == 3) {
+            muligeOrd.add("programmering");
+            muligeOrd.add("firehundrede");
+            muligeOrd.add("dimplomingeniør");
+            muligeOrd.add("androidudvikler");
+            muligeOrd.add("pikantelope");
+            muligeOrd.add("politianmeldelse");
+            muligeOrd.add("fuckhvorerjegliderlig");
+            muligeOrd.add("klorhexedin");
+            muligeOrd.add("bankrøveri");
+            muligeOrd.add("quizmaster");
+            muligeOrd.add("zebratæmmer");
+            muligeOrd.add("sanseudvikler");
+        }
+        else if(sværhedsgrad == 2) {
+            muligeOrd.add("solsort");
+            muligeOrd.add("skovsnegl");
+            muligeOrd.add("gangsti");
+            muligeOrd.add("busrute");
+            muligeOrd.add("motorvej");
+            muligeOrd.add("computer");
+            muligeOrd.add("elastik");
+            muligeOrd.add("madlavning");
+
+        }
+        else {
+            muligeOrd.add("bil");
+            muligeOrd.add("tyve");
+            muligeOrd.add("mis");
+            muligeOrd.add("gave");
+            muligeOrd.add("næse");
+            muligeOrd.add("is");
+            muligeOrd.add("tag");
+        }
+
         startNytSpil();
     }
 

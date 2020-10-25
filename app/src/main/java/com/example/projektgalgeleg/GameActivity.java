@@ -2,6 +2,7 @@ package com.example.projektgalgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -26,6 +27,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     galgeleg.Galgelogik galgelogik;
     Button guessBtn;
     Button restartBtn;
+    Button backBtn;
     EditText guessField;
     ArrayList<String> guessedLetters;
     TextView gameWord;
@@ -42,7 +44,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         guessBtn = (Button) findViewById(R.id.guessBtn);
-        restartBtn = (Button) findViewById(R.id.restartBtn);
+        backBtn = (Button) findViewById(R.id.guessBtn);
         galgelogik = new Galgelogik();
         guessField = (EditText) findViewById(R.id.guessField);
         guessed = findViewById(R.id.guessedLetters);
@@ -51,15 +53,23 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         galgePicture = (ImageView) findViewById(R.id.galgePicture);
         guessedLetters = new ArrayList<>();
 
-        restartBtn.setVisibility(View.GONE);
         gameWord.setText(galgelogik.getSynligtOrd());
         guessBtn.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View v) {
 
+        if(galgelogik.erSpilletVundet() || galgelogik.erSpilletTabt()) {
+            galgelogik.startNytSpil();
+            gameWord.setText(galgelogik.getSynligtOrd());
+            guessedLetters.clear();
+            guessed.setText("");
+            title.setText("Så kører vi igen!");
+            galgePicture.setImageResource(R.drawable.galge);
+            guessBtn.setText("Gæt");
+            return;
+        }
 
         guessField.setError(null);
         str = guessField.getText().toString();
@@ -87,25 +97,29 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             guessed.append(str + ", ");
             gameWord.setText(galgelogik.getSynligtOrd());
 
-        }
+            }
         else {
             guessField.setError("Du har gættet på " + str);
             return;
-        }
+            }
         update();
         }
+
+
+
+
 
 
     private void update() {
         if(galgelogik.erSpilletVundet()) {
             gameWord.setText(galgelogik.getSynligtOrd());
             title.setText("Du har vundet! Godt gættet!");
-            restartBtn.setVisibility(View.VISIBLE);
+            guessBtn.setText("Genstart");
         }
         else if(galgelogik.erSpilletTabt()) {
             gameWord.setText(galgelogik.getSynligtOrd());
             title.setText("Du table, ordet var. " + galgelogik.getOrdet());
-            restartBtn.setVisibility(View.VISIBLE);
+            guessBtn.setText("Genstart");
         }
 
         antalFejl = galgelogik.getAntalForkerteBogstaver();
