@@ -11,7 +11,7 @@ public class Hangman {
     HangState gameOverState;
 
     private HangState hangState;
-    boolean gameRunning;
+    double Score;
     boolean isWon;
     boolean isLost;
     int difficulty;
@@ -54,32 +54,19 @@ public class Hangman {
         this.difficulty = difficulty;
     }
 
-
     public void createWordList(int difficulty) {
         hangState.createWordList(difficulty);
     }
     public void startNewGame() {
         hangState.startNewGame();
     }
-    public void updateWordVisibilty() {}
     public void guessLetter(String letter) {
         hangState.guessLetter(letter);
     }
-    public ArrayList<String> getUsedLetters() {
-        return hangState.getUsedLetters();
-    }
-    public String getVisible() {
-        return hangState.getVisible();
+    public void calculateScore() {
+        hangState.calculateScore();
     }
 
-    public int getTotalWrong() {
-        return totalWrong;
-    }
-    public boolean isPreviousCorrect() {}
-    public boolean isGameWon() {}
-    public boolean isGameLost() {}
-    public boolean isGameOver() {}
-    public void createWordList() {}
 
     public void setWordListD1() {
         wordList.add("bil");

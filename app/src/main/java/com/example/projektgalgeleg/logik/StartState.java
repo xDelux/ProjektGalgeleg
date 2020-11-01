@@ -24,7 +24,6 @@ public class StartState implements HangState {
 
     @Override
     public void startNewGame() {
-        hangman.gameRunning = true;
         createWordList(hangman.difficulty);
         if (hangman.wordList.isEmpty()) throw new IllegalStateException("Listen over mulige ord er tom!");
         hangman.word = hangman.wordList.get(new Random().nextInt(hangman.wordList.size()));
@@ -51,18 +50,8 @@ public class StartState implements HangState {
     }
 
     @Override
-    public ArrayList<String> getUsedLetters() {
-        return null;
+    public void calculateScore() {
+
     }
-
-    @Override
-    public String getVisible() {
-        return null;
-    }
-
-
-
-
-
 
 }

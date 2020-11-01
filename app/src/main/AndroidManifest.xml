@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".userinterface.GameActivity"></activity>
-        <activity android:name=".userinterface.SettingsActivity" />
         <activity android:name=".userinterface.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

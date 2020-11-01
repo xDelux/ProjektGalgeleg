@@ -8,7 +8,7 @@ public interface HangState {
     void startNewGame();
     void updateWordVisibilty();
     void guessLetter(String letter);
-    ArrayList<String> getUsedLetters();
-    String getVisible();
+    void calculateScore();
+
 
 }

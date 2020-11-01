@@ -36,7 +36,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+
         guessBtn = (Button) findViewById(R.id.guessBtn);
         backBtn = (Button) findViewById(R.id.guessBtn);
         galgelogik = new Galgelogik(1);
