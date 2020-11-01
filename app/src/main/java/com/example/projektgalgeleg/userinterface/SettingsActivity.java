@@ -1,8 +1,10 @@
-package com.example.projektgalgeleg;
+package com.example.projektgalgeleg.userinterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.projektgalgeleg.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

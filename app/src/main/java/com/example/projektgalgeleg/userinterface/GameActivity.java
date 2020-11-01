@@ -1,30 +1,24 @@
-package com.example.projektgalgeleg;
+package com.example.projektgalgeleg.userinterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-import galgeleg.Galgelogik;
+import com.example.projektgalgeleg.R;
+import com.example.projektgalgeleg.logik.Galgelogik;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
     int antalFejl;
-    galgeleg.Galgelogik galgelogik;
+    Galgelogik galgelogik;
     Button guessBtn;
     Button restartBtn;
     Button backBtn;
@@ -45,7 +39,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_game);
         guessBtn = (Button) findViewById(R.id.guessBtn);
         backBtn = (Button) findViewById(R.id.guessBtn);
-        galgelogik = new Galgelogik();
+        galgelogik = new Galgelogik(1);
         guessField = (EditText) findViewById(R.id.guessField);
         guessed = findViewById(R.id.guessedLetters);
         gameWord = (TextView) findViewById(R.id.gameWord);

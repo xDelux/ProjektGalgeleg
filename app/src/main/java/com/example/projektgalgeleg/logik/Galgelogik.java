@@ -1,4 +1,4 @@
-package galgeleg;
+package com.example.projektgalgeleg.logik;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -229,6 +229,6 @@ public class Galgelogik {
     }
 
     public static void main(String[] args) throws Exception {
-        new Galgelogik().hentOrdFraRegneark("2");
+        new Galgelogik(2).hentOrdFraRegneark("2");
     }
 }
