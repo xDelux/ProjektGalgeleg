@@ -1,6 +1,7 @@
 package com.example.projektgalgeleg.userinterface;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +12,8 @@ import com.example.projektgalgeleg.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button playBtn;
-    Button settingBtn;
-    Button exitBtn;
+    FragmentManager fragmentManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
