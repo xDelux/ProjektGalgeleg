@@ -1,35 +1,19 @@
 package com.example.projektgalgeleg.logik;
 
 import java.util.ArrayList;
-import java.util.Random;
 
-public class StartState implements HangState {
+public class GameState implements HangState {
 
     Hangman hangman = Hangman.getInstance();
 
-
     @Override
     public void createWordList(int difficulty) {
-        switch (difficulty) {
-            case 1 :
-                hangman.setWordListD1();
-                break;
-            case 2 :
-                hangman.setWordListD2();
-                break;
-            case 3 :
-                hangman.setWordListD3();
-        }
+
     }
 
     @Override
     public void startNewGame() {
-        hangman.gameRunning = true;
-        createWordList(hangman.difficulty);
-        if (hangman.wordList.isEmpty()) throw new IllegalStateException("Listen over mulige ord er tom!");
-        hangman.word = hangman.wordList.get(new Random().nextInt(hangman.wordList.size()));
-        updateWordVisibilty();
-        hangman.setHangState(hangman.getGameState());
+
     }
 
     @Override
@@ -60,9 +44,13 @@ public class StartState implements HangState {
         return null;
     }
 
+    @Override
+    public boolean isGameWon() {
+        return false;
+    }
 
-
-
-
-
+    @Override
+    public boolean isGameLost() {
+        return false;
+    }
 }
