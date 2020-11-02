@@ -6,57 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".userinterface.HomeFragment">
 
-    <TextView
-        android:id="@+id/titleTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Velkommen til galgeleg!"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:textAlignment="center"
-        android:textSize="32sp"
-         />
 
-    <Button
-        android:id="@+id/playBtn"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:text="Start spil"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:layout_below="@id/titleTxt"
-         />
-
-    <Button
-        android:id="@+id/settingBtn"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Spilindstillinger"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/playBtn"
-        />
-
-    <Button
-        android:id="@+id/highscoreBtn"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Highscores"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:layout_below="@id/settingBtn"
-        />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/highscoreBtn"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/forkert6"
-            />
 
 </RelativeLayout>

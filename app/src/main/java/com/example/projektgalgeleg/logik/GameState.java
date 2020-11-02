@@ -4,20 +4,24 @@ import java.util.ArrayList;
 
 public class GameState implements HangState {
 
-    Hangman hangman = Hangman.getInstance();
+    Hangman hangman;
+
+    public GameState(Hangman newHangman) {
+        hangman = newHangman;
+    }
 
     @Override
-    public void createWordList(int difficulty) {
+    public void createWordList(Hangman hangman, int difficulty) {
 
     }
 
     @Override
-    public void startNewGame() {
+    public void startNewGame(Hangman hangman) {
 
     }
 
     @Override
-    public void updateWordVisibilty() {
+    public void updateWordVisibilty(Hangman hangman) {
         hangman.visibleWord = "";
         hangman.isWon = true;
         for (int n = 0; n < hangman.word.length(); n++) {
@@ -30,15 +34,15 @@ public class GameState implements HangState {
             }
         }
         if(hangman.isWon)
-            hangman.setHangState(hangman.getGameOverState());
+            hangman.setHangState(new GameOverState(hangman));
     }
 
     @Override
-    public void guessLetter(String letter) {
+    public void guessLetter(Hangman hangman, String letter) {
         if (letter.length() != 1) return;
         if (hangman.usedLetters.contains(letter)) return;
         if (hangman.isWon || hangman.isLost) {
-            hangman.setHangState(hangman.getGameOverState());
+            hangman.setHangState(new GameOverState(hangman));
             return;
         }
 
@@ -47,14 +51,15 @@ public class GameState implements HangState {
         hangman.totalWrong++;
             if (hangman.totalWrong > 6) {
                 hangman.isLost = true;
-                hangman.setHangState(hangman.getGameOverState());
+                hangman.setHangState(new GameOverState(hangman));
             }
         }
-        updateWordVisibilty();
+        updateWordVisibilty(hangman);
     }
 
     @Override
-    public void calculateScore() {
+    public void calculateScore(Hangman hangman) {
+
 
     }
 

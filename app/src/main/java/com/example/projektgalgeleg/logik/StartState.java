@@ -5,11 +5,14 @@ import java.util.Random;
 
 public class StartState implements HangState {
 
-    Hangman hangman = Hangman.getInstance();
+    Hangman hangman;
 
+    public StartState(Hangman newHangman) {
+        hangman = newHangman;
+    }
 
     @Override
-    public void createWordList(int difficulty) {
+    public void createWordList(Hangman hangman, int difficulty) {
         switch (difficulty) {
             case 1 :
                 hangman.setWordListD1();
@@ -23,16 +26,16 @@ public class StartState implements HangState {
     }
 
     @Override
-    public void startNewGame() {
-        createWordList(hangman.difficulty);
+    public void startNewGame(Hangman hangman) {
+        createWordList(hangman, hangman.difficulty);
         if (hangman.wordList.isEmpty()) throw new IllegalStateException("Listen over mulige ord er tom!");
         hangman.word = hangman.wordList.get(new Random().nextInt(hangman.wordList.size()));
-        updateWordVisibilty();
-        hangman.setHangState(hangman.getGameState());
+        updateWordVisibilty(hangman);
+        hangman.setHangState(new GameState(hangman));
     }
 
     @Override
-    public void updateWordVisibilty() {
+    public void updateWordVisibilty(Hangman hangman) {
         hangman.visibleWord = "";
         for (int n = 0; n < hangman.word.length(); n++) {
             String letter = hangman.word.substring(n, n + 1);
@@ -45,12 +48,12 @@ public class StartState implements HangState {
     }
 
     @Override
-    public void guessLetter(String letter) {
+    public void guessLetter(Hangman hangman, String letter) {
 
     }
 
     @Override
-    public void calculateScore() {
+    public void calculateScore(Hangman hangman) {
 
     }
 

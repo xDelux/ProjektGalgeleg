@@ -2,4 +2,9 @@
     <string name="app_name">ProjektGalgeleg</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="difficulty">
+        <item>Let</item>
+        <item>Mellem</item>
+        <item>Svær</item>
+    </string-array>
 </resources>

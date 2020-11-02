@@ -6,11 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".userinterface.MainActivity">
 
-    <fragment
-        android:id="@+id/main_fragment"
+    <RelativeLayout
+        android:id="@+id/homelayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Velkommen til galgeleg!"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:textAlignment="center"
+            android:textSize="32sp"
+            />
 
-        />
+        <Button
+            android:id="@+id/playBtn"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Start spil"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_below="@id/titleTxt"
+            />
+
+        <Button
+            android:id="@+id/settingBtn"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Spilindstillinger"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/playBtn"
+            />
+
+        <Button
+            android:id="@+id/highscoreBtn"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Highscores"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:layout_below="@id/settingBtn"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/highscoreBtn"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/forkert6"
+            />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

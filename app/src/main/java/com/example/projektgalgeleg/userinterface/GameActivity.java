@@ -20,7 +20,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     int antalFejl;
     Galgelogik galgelogik;
     Button guessBtn;
-    Button restartBtn;
     Button backBtn;
     EditText guessField;
     ArrayList<String> guessedLetters;

@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public interface HangState {
 
-    void createWordList(int difficulty);
-    void startNewGame();
-    void updateWordVisibilty();
-    void guessLetter(String letter);
-    void calculateScore();
+    void createWordList(Hangman hangman, int difficulty);
+    void startNewGame(Hangman hangman);
+    void updateWordVisibilty(Hangman hangman);
+    void guessLetter(Hangman hangman, String letter);
+    void calculateScore(Hangman hangman);
 
 
 }

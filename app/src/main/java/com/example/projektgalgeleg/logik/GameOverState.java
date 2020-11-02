@@ -5,15 +5,19 @@ import java.util.Random;
 
 public class GameOverState implements HangState {
 
-    Hangman hangman = Hangman.getInstance();
+    Hangman hangman;
+
+    public GameOverState(Hangman newHangman) {
+        hangman = newHangman;
+    }
 
     @Override
-    public void createWordList(int difficulty) {
+    public void createWordList(Hangman hangman, int difficulty) {
 
     }
 
     @Override
-    public void startNewGame() {
+    public void startNewGame(Hangman hangman) {
         hangman.totalWrong = 0;
         hangman.usedLetters.clear();
         hangman.word = hangman.wordList.get(new Random().nextInt(hangman.wordList.size()));
@@ -22,14 +26,14 @@ public class GameOverState implements HangState {
             hangman.isLost = false;
         }
         else {
-
+            hangman.isWon = false;
         }
-        updateWordVisibilty();
-        hangman.setHangState(hangman.getGameState());
+        updateWordVisibilty(hangman);
+        hangman.setHangState(new GameState(hangman));
     }
 
     @Override
-    public void updateWordVisibilty() {
+    public void updateWordVisibilty(Hangman hangman) {
         hangman.visibleWord = "";
         for (int n = 0; n < hangman.word.length(); n++) {
             String letter = hangman.word.substring(n, n + 1);
@@ -42,13 +46,13 @@ public class GameOverState implements HangState {
     }
 
     @Override
-    public void guessLetter(String letter) {
+    public void guessLetter(Hangman hangman, String letter) {
 
     }
 
     @Override
-    public void calculateScore() {
-        hangman.Score += hangman.difficulty * 100 * hangman.word.length() * ((10 - hangman.totalWrong) * 0.1);
+    public void calculateScore(Hangman hangman) {
+        hangman.Score += hangman.difficulty * 100 * (hangman.word.length() - hangman.totalWrong);
     }
 
 

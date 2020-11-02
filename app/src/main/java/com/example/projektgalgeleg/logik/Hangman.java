@@ -3,69 +3,55 @@ import java.util.ArrayList;
 
 public class Hangman {
 
-    private static Hangman hangmanInstance = null;
-
-    HangState startState;
-    HangState gameState;
-    HangState idleState;
-    HangState gameOverState;
-
     private HangState hangState;
+    private HangState startState;
+    private HangState gameState;
+    private HangState gameOverState;
+
+
     double Score;
     boolean isWon;
     boolean isLost;
-    int difficulty;
-    ArrayList<String> wordList;
-    ArrayList<String> usedLetters;
+    int difficulty = 1;
+
+    ArrayList<String> wordList = new ArrayList<>();
+    ArrayList<String> usedLetters = new ArrayList<>();
     int totalWrong;
     String word;
     String visibleWord;
 
 
-    private Hangman() {
-
-        startState = new StartState();
-        gameState = new GameState();
-        gameOverState = new GameOverState();
-
+    public Hangman() {
+        startState = new StartState(this);
+        gameState = new GameState(this);
+        gameOverState = new GameOverState(this);
         hangState = startState;
     }
 
-    public static Hangman getInstance() {
-        if(hangmanInstance == null)
-            hangmanInstance = new Hangman();
-
-        return hangmanInstance;
-    }
 
     // Getter and Setter's for the States
-    public void setHangState(HangState hangState) {
-        this.hangState = hangState;
-    }
-    public HangState getHangState() {
-        return hangState;
-    }
+    public void setHangState(HangState hangState) { this.hangState = hangState; }
+    public HangState getHangState() { return hangState; }
     public HangState getStartState() { return startState; }
     public HangState getGameState() { return gameState; }
-    public HangState getIdleState() { return idleState; }
     public HangState getGameOverState() { return gameOverState; }
 
-    public void setDifficulty(int difficulty) {
-        this.difficulty = difficulty;
-    }
 
-    public void createWordList(int difficulty) {
-        hangState.createWordList(difficulty);
-    }
-    public void startNewGame() {
-        hangState.startNewGame();
-    }
-    public void guessLetter(String letter) {
-        hangState.guessLetter(letter);
-    }
-    public void calculateScore() {
-        hangState.calculateScore();
-    }
+    public double getScore() { return Score; }
+    public boolean isWon() { return isWon; }
+    public boolean isLost() { return isLost; }
+    public int getDifficulty() { return difficulty; }
+    public ArrayList<String> getWordList() { return wordList; }
+    public ArrayList<String> getUsedLetters() { return usedLetters; }
+    public int getTotalWrong() { return totalWrong; }
+    public String getWord() { return word; }
+    public String getVisibleWord() { return visibleWord; }
+    public void setDifficulty(int difficulty) { this.difficulty = difficulty; }
+
+    public void createWordList(int difficulty) { hangState.createWordList(this, difficulty); }
+    public void startNewGame() { hangState.startNewGame(this); }
+    public void guessLetter(String letter) { hangState.guessLetter(this, letter); }
+    public void calculateScore() { hangState.calculateScore(this); }
 
 
     public void setWordListD1() {
