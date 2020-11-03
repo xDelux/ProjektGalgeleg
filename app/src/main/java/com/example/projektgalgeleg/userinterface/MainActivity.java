@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,28 +16,25 @@ import com.example.projektgalgeleg.logik.Hangman;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
     Button playBtn;
     Button settingBtn;
     Button highscoresBtn;
     String difficulty;
-    Bundle bundle;
+
     RelativeLayout homelayout;
     Fragment settingsFragment = new GameSettingsFragment();
     Fragment highscoreFragment = new HighscoreFragment();
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        bundle = new Bundle();
-
 
         playBtn = findViewById(R.id.playBtn);
         settingBtn =  findViewById(R.id.settingBtn);
         highscoresBtn = findViewById(R.id.highscoreBtn);
-
         homelayout = findViewById(R.id.homelayout);
 
 

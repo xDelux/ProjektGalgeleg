@@ -1,6 +1,7 @@
 package com.example.projektgalgeleg.userinterface;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.example.projektgalgeleg.R;
 import com.example.projektgalgeleg.logik.Hangman;
 
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class GameFragment extends Fragment implements View.OnClickListener {
@@ -29,11 +31,15 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     TextView score;
     ImageView galgePicture;
     String input;
+    SharedPreferences sp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
+
+        sp = this.getActivity().getSharedPreferences("args", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
 
 
         Game = Hangman.getInstance();
@@ -65,7 +71,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
             galgePicture.setImageResource(R.drawable.galge);
             guessBtn.setText("Gæt");
             if(Game.isLost())
-                score.setText("0");
+                score.setText("" + score);
             return;
         }
 
@@ -106,16 +112,20 @@ public class GameFragment extends Fragment implements View.OnClickListener {
         }
 
         if(Game.isLost()) {
-            Game.calculateScore();
-            title.setText("Du tablte. Din score blev: " + Game.getScore());
-            score.setText("" + Game.getScore());
-            guessBtn.setText("Genstart");
+            Fragment lostFragment = new LostFragment();
+            this.getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, lostFragment)
+                    .addToBackStack(null)
+                    .commit();
 
         } else if(Game.isWon()) {
-            Game.calculateScore();
-            title.setText("Du Vandt! Vil du køre videre for en højere score?");
-            score.setText("" + Game.getScore());
-            guessBtn.setText("Genstart");
+            Fragment wonFragment = new WonFragment();
+            this.getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, wonFragment)
+                    .addToBackStack(null)
+                    .commit();
 
         }
     }

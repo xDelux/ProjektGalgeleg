@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userinterface.WonFragment">
+
+    <TextView
+        android:id="@+id/wonTitleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Du vandt!"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+    <LinearLayout
+        android:id="@+id/wonlinearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/wonTitleTxt">
+
+        <TextView
+            android:id="@+id/yourscorewasTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Din score blev: "
+            />
+        <TextView
+            android:id="@+id/scoreTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wonTitleTxt"
+            android:gravity="end"
+            android:layout_centerHorizontal="true"
+            android:text="10000"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wonlinearLayout2"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wonlinearLayout1"
+        android:layout_centerHorizontal="true"
+        >
+
+        <Button
+            android:id="@+id/goBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kør videre"
+            />
+        <Button
+            android:id="@+id/wonEndBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Afslut"
+            />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
