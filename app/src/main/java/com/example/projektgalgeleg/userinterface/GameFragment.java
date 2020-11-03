@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.projektgalgeleg.R;
-import com.example.projektgalgeleg.logik.GameState;
 import com.example.projektgalgeleg.logik.Hangman;
 
-import org.w3c.dom.Text;
 
-import java.util.ArrayList;
 
 public class GameFragment extends Fragment implements View.OnClickListener {
 
@@ -33,33 +29,14 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     TextView score;
     ImageView galgePicture;
     String input;
-    String difficulty;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
-        try {
-            difficulty = getArguments().getString("difficulty");
-            Game = new Hangman();
-            switch (difficulty) {
-                case "Let" :
-                    Game.setDifficulty(1);
-                    break;
-                case "Mellem" :
-                    Game.setDifficulty(2);
-                    break;
-                case "Svær" :
-                    Game.setDifficulty(3);
-                    break;
-            }
-
-        } catch (NullPointerException e) {
-            Log.d("GameFragment", "Difficulty was null");
-            Game = new Hangman();
-        }
 
 
+        Game = Hangman.getInstance();
 
         guessBtn = view.findViewById(R.id.guessBtn);
         guessField = view.findViewById(R.id.guessField);
@@ -141,7 +118,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
             guessBtn.setText("Genstart");
 
         }
-
-
     }
+
+
 }

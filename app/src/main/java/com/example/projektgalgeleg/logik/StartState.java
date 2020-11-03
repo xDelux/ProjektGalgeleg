@@ -5,10 +5,12 @@ import java.util.Random;
 
 public class StartState implements HangState {
 
-    Hangman hangman;
+    private static StartState startStateInstance = null;
 
-    public StartState(Hangman newHangman) {
-        hangman = newHangman;
+    public static StartState getInstance() {
+        if(startStateInstance == null)
+            startStateInstance = new StartState();
+        return startStateInstance;
     }
 
     @Override
@@ -26,12 +28,12 @@ public class StartState implements HangState {
     }
 
     @Override
-    public void startNewGame(Hangman hangman) {
-        createWordList(hangman, hangman.difficulty);
+    public void startNewGame(Hangman hangman, int difficulty) {
+        createWordList(hangman, difficulty);
         if (hangman.wordList.isEmpty()) throw new IllegalStateException("Listen over mulige ord er tom!");
         hangman.word = hangman.wordList.get(new Random().nextInt(hangman.wordList.size()));
         updateWordVisibilty(hangman);
-        hangman.setHangState(new GameState(hangman));
+        hangman.setHangState(GameState.getInstance());
     }
 
     @Override

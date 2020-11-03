@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 public class GameState implements HangState {
 
-    Hangman hangman;
+    private static GameState gameStateInstance = null;
 
-    public GameState(Hangman newHangman) {
-        hangman = newHangman;
+    public static GameState getInstance() {
+        if(gameStateInstance == null)
+            gameStateInstance = new GameState();
+        return gameStateInstance;
     }
 
     @Override
@@ -16,7 +18,7 @@ public class GameState implements HangState {
     }
 
     @Override
-    public void startNewGame(Hangman hangman) {
+    public void startNewGame(Hangman hangman, int difficulty) {
 
     }
 
@@ -34,7 +36,7 @@ public class GameState implements HangState {
             }
         }
         if(hangman.isWon)
-            hangman.setHangState(new GameOverState(hangman));
+            hangman.setHangState(GameOverState.getInstance());
     }
 
     @Override
@@ -42,7 +44,7 @@ public class GameState implements HangState {
         if (letter.length() != 1) return;
         if (hangman.usedLetters.contains(letter)) return;
         if (hangman.isWon || hangman.isLost) {
-            hangman.setHangState(new GameOverState(hangman));
+            hangman.setHangState(GameOverState.getInstance());
             return;
         }
 
@@ -51,7 +53,7 @@ public class GameState implements HangState {
         hangman.totalWrong++;
             if (hangman.totalWrong > 6) {
                 hangman.isLost = true;
-                hangman.setHangState(new GameOverState(hangman));
+                hangman.setHangState(GameOverState.getInstance());
             }
         }
         updateWordVisibilty(hangman);

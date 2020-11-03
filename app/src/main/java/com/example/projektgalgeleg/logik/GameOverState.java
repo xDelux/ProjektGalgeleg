@@ -5,10 +5,12 @@ import java.util.Random;
 
 public class GameOverState implements HangState {
 
-    Hangman hangman;
+    private static GameOverState gameOverStateInstance = null;
 
-    public GameOverState(Hangman newHangman) {
-        hangman = newHangman;
+    public static GameOverState getInstance() {
+        if(gameOverStateInstance == null)
+            gameOverStateInstance = new GameOverState();
+        return gameOverStateInstance;
     }
 
     @Override
@@ -17,7 +19,7 @@ public class GameOverState implements HangState {
     }
 
     @Override
-    public void startNewGame(Hangman hangman) {
+    public void startNewGame(Hangman hangman, int difficulty) {
         hangman.totalWrong = 0;
         hangman.usedLetters.clear();
         hangman.word = hangman.wordList.get(new Random().nextInt(hangman.wordList.size()));
@@ -29,7 +31,7 @@ public class GameOverState implements HangState {
             hangman.isWon = false;
         }
         updateWordVisibilty(hangman);
-        hangman.setHangState(new GameState(hangman));
+        hangman.setHangState(GameState.getInstance());
     }
 
     @Override
