@@ -53,6 +53,8 @@ public class Hangman {
     public String getWord() { return word; }
     public String getVisibleWord() { return visibleWord; }
     public void setDifficulty(int difficulty) { this.difficulty = difficulty; }
+    public void setPlayerName(String name) {this.playerName = name; }
+    public String getPlayerName() { return playerName; }
 
     public void createWordList(int difficulty) { hangState.createWordList(this, difficulty); }
     public void startNewGame() { hangState.startNewGame(this, this.difficulty); }
@@ -86,7 +88,6 @@ public class Hangman {
         wordList.add("androidudvikler");
         wordList.add("pikantelope");
         wordList.add("politianmeldelse");
-        wordList.add("fuckhvorerjegliderlig");
         wordList.add("klorhexedin");
         wordList.add("bankrøveri");
         wordList.add("quizmaster");

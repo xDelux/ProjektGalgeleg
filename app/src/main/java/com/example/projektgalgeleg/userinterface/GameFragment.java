@@ -120,6 +120,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
                     .commit();
 
         } else if(Game.isWon()) {
+            Game.calculateScore();
             Fragment wonFragment = new WonFragment();
             this.getActivity().getSupportFragmentManager()
                     .beginTransaction()
