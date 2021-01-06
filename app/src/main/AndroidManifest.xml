@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.projektgalgeleg">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-feature android:name="android.hardware.type.watch" />
 
     <application
         android:allowBackup="true"
@@ -16,9 +14,6 @@
         <activity android:name=".userinterface.LostActivity"></activity>
         <activity android:name=".userinterface.HighscoreActivity" />
 
-        <uses-library
-            android:name="com.google.android.wearable"
-            android:required="true" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
