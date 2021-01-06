@@ -1,4 +1,4 @@
-package com.example.projektgalgeleg.userinterface;
+package com.example.projektgalgeleg.oldfragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,10 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.projektgalgeleg.R;
 import com.example.projektgalgeleg.logik.Hangman;
+import com.example.projektgalgeleg.userinterface.MainActivity;
 
 
 public class WonFragment extends Fragment{
@@ -62,7 +62,7 @@ public class WonFragment extends Fragment{
                     fm.popBackStack();
                 }
                 main = (MainActivity) getActivity();
-                main.homelayout.setVisibility(View.VISIBLE);
+
             }
         });
 

@@ -1,4 +1,4 @@
-package com.example.projektgalgeleg.userinterface;
+package com.example.projektgalgeleg.oldfragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.projektgalgeleg.R;
+import com.example.projektgalgeleg.userinterface.MainActivity;
 
 import java.util.ArrayList;
 

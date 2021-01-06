@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".userinterface.GameSettingsActivity">
+    tools:context=".oldfragments.GameSettingsFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/settingstitleTxt"
+        android:textSize="32dp"
+        android:text="Spilindstilliger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="180dp"
+        android:textColor="#000000"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Vælg sværhedsgrad:"
+        android:layout_above="@id/difficultySpin"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        />
+
+    <Spinner
+        android:id="@+id/difficultySpin"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/settingstitleTxt"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/tipTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Du får point flere ved svære sværhedsgrader!"
+        android:layout_below="@id/difficultySpin"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:id="@+id/confirmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tipTxt"
+        android:text="Bækræft"
+        android:layout_marginTop="10dp"
+        />
+
+
+</RelativeLayout>

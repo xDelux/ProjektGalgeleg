@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".userinterface.LostActivity">
+    tools:context=".oldfragments.LostFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/lostTitleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Du tabte."
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+    <LinearLayout
+        android:id="@+id/lostlinearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/lostTitleTxt">
+
+        <TextView
+            android:id="@+id/tryagainTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vil du prøve igen?"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lostlinearLayout2"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lostlinearLayout1"
+        android:layout_centerHorizontal="true"
+        >
+
+        <Button
+            android:id="@+id/tryagainBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prøv igen"
+            />
+        <Button
+            android:id="@+id/lostEndBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Afslut"
+            />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

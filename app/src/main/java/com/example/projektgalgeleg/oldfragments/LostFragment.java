@@ -1,4 +1,4 @@
-package com.example.projektgalgeleg.userinterface;
+package com.example.projektgalgeleg.oldfragments;
 
 import android.os.Bundle;
 
@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.projektgalgeleg.R;
 import com.example.projektgalgeleg.logik.Hangman;
+import com.example.projektgalgeleg.userinterface.MainActivity;
 
 public class LostFragment extends Fragment {
     Button lostendBtn, tryAgainBtn;
