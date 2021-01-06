@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".userinterface.GameActivity">
+    tools:context=".userinterface.GameFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/galgePicture"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/mainGameTitle"
+        android:layout_centerHorizontal="true"
+        android:foregroundGravity=""
+        android:src="@drawable/galge"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="60dp" />
+
+    <TextView
+        android:id="@+id/mainGameTitle"
+        android:layout_width="382dp"
+        android:layout_height="78dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Galgeleg er i gang!"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="32dp"
+        />
+
+
+    <TextView
+        android:id="@+id/gameWord"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/galgePicture"
+        android:gravity="center_horizontal"
+        android:text="wordwordword"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="32dp"
+        />
+
+    <EditText
+        android:id="@+id/guessField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_below="@id/gameWord"
+        android:hint="Gæt bogstav her..."
+        />
+
+    <TextView
+        android:id="@+id/yourguessTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="138dp"
+        android:text="Dine gæt:"
+        android:textColor="#000000"
+        />
+
+    <TextView
+        android:id="@+id/highscoreTxt"
+        android:textSize="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="138dp"
+        android:text="0"
+        android:textColor="#000000"
+        />
+
+    <TextView
+        android:id="@+id/guessedLetters"
+        android:layout_width="87dp"
+        android:layout_height="51dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="305dp"
+        android:layout_marginRight="305dp"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp" />
+
+    <Button
+        android:id="@+id/guessBtn"
+        android:layout_width="128dp"
+        android:layout_height="57dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/guessField"
+        android:text="Gæt"
+        />
+
+
+</RelativeLayout>

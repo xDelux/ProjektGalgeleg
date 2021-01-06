@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -26,8 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String difficulty;
     EditText playername;
     RelativeLayout homelayout;
-    Fragment settingsFragment = new GameSettingsFragment();
-    Fragment highscoreFragment = new HighscoreFragment();
     SharedPreferences sp;
     ArrayList<String> highscores;
 
@@ -48,47 +47,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         highscoresBtn.setOnClickListener(this);
 
 
-
     }
 
     @Override
     public void onClick(View v) {
 
         System.out.println(difficulty);
-        Fragment fragment = null;
+        Intent i = null;
         switch (v.getId()) {
             case R.id.playBtn:
                 try {
                     Hangman.getInstance().setPlayerName(playername.getText().toString());
                     if(Hangman.getInstance().getPlayerName().matches(""))
                         throw new NullPointerException();
-                    fragment = new GameFragment();
+                    i = new Intent(this, GameActivity.class);
                 } catch (NullPointerException e) {
                     playername.setError("Indtast dit navn");
                     return;
                 }
                 break;
             case R.id.settingBtn:
-                fragment = settingsFragment;
+                i = new Intent(this, GameSettingsActivity.class);
                 Hangman.freeInstance();
                 break;
             case R.id.highscoreBtn:
-                fragment = highscoreFragment;
+                i  = new Intent(this, HighscoreActivity.class);
 
                 break;
 
         }
-        homelayout.setVisibility(View.GONE);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commit();
+        startActivity(i);
     }
 
-    @Override
-    public void onBackPressed() {
-        homelayout.setVisibility(View.VISIBLE);
-        super.onBackPressed();
-    }
 }
