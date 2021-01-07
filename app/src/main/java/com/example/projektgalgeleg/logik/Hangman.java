@@ -1,5 +1,11 @@
 package com.example.projektgalgeleg.logik;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 
 public class Hangman {
 
@@ -55,7 +61,9 @@ public class Hangman {
     public void setDifficulty(int difficulty) { this.difficulty = difficulty; }
     public void setPlayerName(String name) {this.playerName = name; }
     public String getPlayerName() { return playerName; }
-
+    public boolean wordListNotNull() {
+        return wordList != null;
+    }
     public void createWordList(int difficulty) { hangState.createWordList(this, difficulty); }
     public void startNewGame() { hangState.startNewGame(this, this.difficulty); }
     public void guessLetter(String letter) { hangState.guessLetter(this, letter); }
@@ -94,6 +102,38 @@ public class Hangman {
         wordList.add("zebratæmmer");
         wordList.add("sanseudvikler");
     }
+    public void getWordListFromDR() throws Exception, IOException {
+        String data = getUrl("https://dr.dk");
 
+        data = data.substring(data.indexOf("<body")). // fjern headere
+                replaceAll("<.+?>", " ").toLowerCase(). // fjern tags
+                replaceAll("&#198;", "æ"). // erstat HTML-tegn
+                replaceAll("&#230;", "æ"). // erstat HTML-tegn
+                replaceAll("&#216;", "ø"). // erstat HTML-tegn
+                replaceAll("&#248;", "ø"). // erstat HTML-tegn
+                replaceAll("&oslash;", "ø"). // erstat HTML-tegn
+                replaceAll("&#229;", "å"). // erstat HTML-tegn
+                replaceAll("[^a-zæøå]", " "). // fjern tegn der ikke er bogstaver
+                replaceAll(" [a-zæøå] "," "). // fjern 1-bogstavsord
+                replaceAll(" [a-zæøå][a-zæøå] "," "); // fjern 2-bogstavsord
+
+        System.out.println("data = " + data);
+        System.out.println("data = " + Arrays.asList(data.split("\\s+")));
+        wordList.clear();
+        wordList.addAll(new HashSet<String>(Arrays.asList(data.split(" "))));
+
+    }
+
+    public static String getUrl(String url) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
+        StringBuilder sb = new StringBuilder();
+        String line = br.readLine();
+        while (line != null) {
+            sb.append(line + "\n");
+            line = br.readLine();
+        }
+        return sb.toString();
+    }
 
 }

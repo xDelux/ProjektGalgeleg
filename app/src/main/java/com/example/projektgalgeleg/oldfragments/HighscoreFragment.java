@@ -23,7 +23,7 @@ public class HighscoreFragment extends Fragment {
     MainActivity main;
     SharedPreferences sp;
 
-    @Override
+    /*@Override
     // Elendig highscore kan kun holde 1 highscore.
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,5 +44,5 @@ public class HighscoreFragment extends Fragment {
 
 
         return view;
-    }
+    } */
 }

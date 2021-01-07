@@ -6,6 +6,7 @@
         <item>Let</item>
         <item>Mellem</item>
         <item>Svær</item>
+        <item>DR</item>
     </string-array>
     <string name="title_activity_lost">LostActivity</string>
     <!--

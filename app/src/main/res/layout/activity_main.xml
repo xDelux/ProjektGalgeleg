@@ -5,6 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".userinterface.MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/bluefade"
+        />
 
     <RelativeLayout
         android:id="@+id/homelayout"
@@ -15,38 +21,50 @@
             android:id="@+id/playernameET"
             android:layout_marginTop="20dp"
             android:layout_width="200dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
+            android:fontFamily="casual"
             android:hint="Dit navn"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:gravity="center_horizontal"
             android:layout_centerHorizontal="true"/>
 
         <TextView
             android:id="@+id/titleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Velkommen til galgeleg!"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="60dp"
+            android:fontFamily="casual"
+            android:gravity="center_horizontal"
+
+            android:text="Velkommen til galgeleg!"
             android:textAlignment="center"
-            android:textSize="32sp"
-            />
+            android:textColor="#FFFFFF"
+            android:textSize="32sp" />
 
         <Button
             android:id="@+id/playBtn"
             android:layout_width="160dp"
+            android:fontFamily="casual"
             android:layout_height="wrap_content"
             android:text="Start spil"
+            android:textSize="17dp"
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
+            android:background="@drawable/button_round"
             android:layout_below="@id/titleTxt"
             />
 
         <Button
             android:id="@+id/settingBtn"
             android:layout_width="160dp"
+            android:textSize="17dp"
+            android:fontFamily="casual"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Spilindstillinger"
+            android:text="Indstillinger"
+            android:background="@drawable/button_round"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:layout_below="@id/playBtn"
@@ -55,13 +73,18 @@
         <Button
             android:id="@+id/highscoreBtn"
             android:layout_width="160dp"
+            android:textSize="17dp"
+            android:fontFamily="casual"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Highscores"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="0dp"
             android:layout_below="@id/settingBtn"
+            android:background="@drawable/button_round"
             />
+
+
 
         <ImageView
             android:layout_width="wrap_content"
@@ -69,14 +92,13 @@
             android:layout_below="@id/highscoreBtn"
             android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/forkert6"
+            android:src="@drawable/hangman"
             />
+
+
 
     </RelativeLayout>
 
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
 
 </RelativeLayout>

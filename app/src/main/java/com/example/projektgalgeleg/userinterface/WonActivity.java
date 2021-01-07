@@ -21,12 +21,20 @@ public class WonActivity extends AppCompatActivity {
     TextView score;
     MainActivity main;
     SharedPreferences sp;
+    int counter;
+    String playername;
+    public static final String SHARED_PREFS = "shared_prefs";
+    public static final String HIGHSCORE = "highscore";
+    public static final String NAME = "name";
+    public static final String DIFF = "diff";
+
+    Hangman hgm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_won);
-
+        hgm  = Hangman.getInstance();
 
         score = findViewById(R.id.scoreTxt);
         goBtn = findViewById(R.id.goBtn);
@@ -47,14 +55,14 @@ public class WonActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Her skal der sendes info til highscore listen
-                Intent i = new Intent(v.getContext(), GameActivity.class);
-                startActivity(i);
+                Intent highscoreIntent = new Intent(v.getContext(), HighscoreActivity.class);
+                highscoreIntent.putExtra(NAME, hgm.getPlayerName());
+                highscoreIntent.putExtra(HIGHSCORE, hgm.getScore() );
+                highscoreIntent.putExtra(DIFF, hgm.getDifficulty() );
+                startActivity(highscoreIntent);
             }
         });
 
     }
-
-
-
 
 }

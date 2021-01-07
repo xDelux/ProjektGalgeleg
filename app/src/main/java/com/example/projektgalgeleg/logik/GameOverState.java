@@ -54,6 +54,9 @@ public class GameOverState implements HangState {
 
     @Override
     public void calculateScore(Hangman hangman) {
+        if(hangman.difficulty == 4)
+            hangman.Score += (hangman.difficulty * 100 * (hangman.word.length() - hangman.totalWrong))/2;
+        else
         hangman.Score += hangman.difficulty * 100 * (hangman.word.length() - hangman.totalWrong);
     }
 

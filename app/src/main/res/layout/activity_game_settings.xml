@@ -3,32 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".oldfragments.GameSettingsFragment">
+    >
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/bluefade"
+        />
 
     <TextView
         android:id="@+id/settingstitleTxt"
         android:textSize="32dp"
+        android:fontFamily="casual"
+
         android:text="Spilindstilliger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="180dp"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:text="Vælg sværhedsgrad:"
+        android:fontFamily="casual"
         android:layout_above="@id/difficultySpin"
         android:layout_centerHorizontal="true"
         android:textColor="#000000"
         />
 
-    <Spinner
+    <ListView
         android:id="@+id/difficultySpin"
+
         android:layout_centerHorizontal="true"
         android:layout_below="@id/settingstitleTxt"
         android:layout_width="100dp"

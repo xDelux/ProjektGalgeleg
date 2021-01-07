@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
@@ -17,6 +19,9 @@ import android.widget.TextView;
 import com.example.projektgalgeleg.R;
 import com.example.projektgalgeleg.logik.Hangman;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,7 +31,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     TextView guessedLetters;
     TextView gameWord;
     TextView title;
-    TextView score;
     ImageView galgePicture;
     String input;
     SharedPreferences sp;
@@ -36,6 +40,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_game);
+        Handler uiThread = new Handler();
+        Executor bgThread = Executors.newSingleThreadExecutor();
 
         Game = Hangman.getInstance();
 
@@ -44,13 +50,28 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         guessedLetters = findViewById(R.id.guessedLetters);
         gameWord = findViewById(R.id.gameWord);
         title = findViewById(R.id.mainGameTitle);
-        score = findViewById(R.id.highscoreTxt);
         galgePicture = findViewById(R.id.galgePicture);
+        if(Game.getDifficulty() == 4) {
+            bgThread.execute(() -> {
+                try {
+                    Game.startNewGame();
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                    Log.d("Error", "Kunne ikke tilslutte til dr.dk");
+                }
+                uiThread.post(() -> {
+                    gameWord.setText(Game.getVisibleWord());
+                    guessBtn.setOnClickListener(this);
+                });
+            });
+        } else {
+            Game.startNewGame();
+            gameWord.setText(Game.getVisibleWord());
+            guessBtn.setOnClickListener(this);
+        }
 
-        Game.startNewGame();
-        gameWord.setText(Game.getVisibleWord());
 
-        guessBtn.setOnClickListener(this);
     }
 
     @Override
@@ -63,9 +84,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             title.setText("Galgeleg kører igen!");
             galgePicture.setImageResource(R.drawable.galge);
             guessBtn.setText("Gæt");
-            if(Game.isLost())
-                score.setText("" + score);
-            return;
+
         }
 
         input = guessField.getText().toString();
@@ -110,6 +129,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         } else if(Game.isWon()) {
             Intent i = new Intent(this, WonActivity.class);
+            Game.calculateScore();
             startActivity(i);
         }
     }
