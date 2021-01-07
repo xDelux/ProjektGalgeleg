@@ -18,19 +18,22 @@
         android:layout_height="wrap_content"
         android:text="Du tabte."
         android:textColor="#000000"
+        android:fontFamily="casual"
         android:textSize="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="200dp"
         />
     <LinearLayout
         android:id="@+id/lostlinearLayout1"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/lostTitleTxt">
 
         <TextView
             android:id="@+id/tryagainTxt"
+            android:fontFamily="casual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vil du prøve igen?"
@@ -46,16 +49,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/lostlinearLayout1"
         android:layout_centerHorizontal="true"
+
         >
 
         <Button
             android:id="@+id/tryagainBtn"
             android:layout_width="wrap_content"
+            android:background="@drawable/button_round"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:layout_marginHorizontal="5dp"
             android:text="Prøv igen"
+
             />
         <Button
             android:id="@+id/lostEndBtn"
+            android:background="@drawable/button_round"
+            android:fontFamily="casual"
+            android:layout_marginHorizontal="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Afslut"
@@ -63,6 +74,6 @@
 
     </LinearLayout>
 
+    </RelativeLayout>
 
 
-</RelativeLayout>

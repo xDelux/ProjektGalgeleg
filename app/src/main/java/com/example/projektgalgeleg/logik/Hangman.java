@@ -61,9 +61,6 @@ public class Hangman {
     public void setDifficulty(int difficulty) { this.difficulty = difficulty; }
     public void setPlayerName(String name) {this.playerName = name; }
     public String getPlayerName() { return playerName; }
-    public boolean wordListNotNull() {
-        return wordList != null;
-    }
     public void createWordList(int difficulty) { hangState.createWordList(this, difficulty); }
     public void startNewGame() { hangState.startNewGame(this, this.difficulty); }
     public void guessLetter(String letter) { hangState.guessLetter(this, letter); }

@@ -18,9 +18,10 @@
         android:layout_height="wrap_content"
         android:text="Du vandt!"
         android:textColor="#000000"
+        android:fontFamily="casual"
         android:textSize="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="200dp"
         />
     <LinearLayout
         android:id="@+id/wonlinearLayout1"
@@ -32,12 +33,16 @@
         <TextView
             android:id="@+id/yourscorewasTxt"
             android:layout_width="wrap_content"
+            android:fontFamily="casual"
+            android:textColor="#FFFFFF"
             android:layout_height="wrap_content"
             android:text="Din score blev: "
             />
         <TextView
             android:id="@+id/scoreTxt"
             android:layout_width="wrap_content"
+            android:fontFamily="casual"
+            android:textColor="#FFFFFF"
             android:layout_height="wrap_content"
             android:layout_below="@id/wonTitleTxt"
             android:gravity="end"
@@ -61,13 +66,19 @@
             android:id="@+id/goBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/button_round"
             android:text="Kør videre"
             />
         <Button
             android:id="@+id/wonEndBtn"
+            android:background="@drawable/button_round"
+            android:fontFamily="casual"
+            android:layout_marginHorizontal="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Afslut"
+            android:text="Gem score"
             />
 
     </LinearLayout>

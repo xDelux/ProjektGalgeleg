@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 
@@ -54,24 +55,23 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         if(Game.getDifficulty() == 4) {
             bgThread.execute(() -> {
                 try {
-                    Game.startNewGame();
+                    uiThread.post(() -> { title.setText("Tænker...");});
+                    Game.createWordList(Game.getDifficulty());
+                    SystemClock.sleep(2000);
+                    uiThread.post(() -> { Game.startNewGame();});
+                    uiThread.post(() -> { title.setText("Galgeleg er i gang!");});
+                    uiThread.post(() -> { gameWord.setText(Game.getVisibleWord()); });
                 }
                 catch (Exception e) {
                     e.printStackTrace();
                     Log.d("Error", "Kunne ikke tilslutte til dr.dk");
                 }
-                uiThread.post(() -> {
-                    gameWord.setText(Game.getVisibleWord());
-                    guessBtn.setOnClickListener(this);
-                });
             });
         } else {
             Game.startNewGame();
-            gameWord.setText(Game.getVisibleWord());
-            guessBtn.setOnClickListener(this);
         }
-
-
+        gameWord.setText(Game.getVisibleWord());
+        guessBtn.setOnClickListener(this);
     }
 
     @Override

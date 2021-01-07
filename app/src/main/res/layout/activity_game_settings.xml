@@ -33,35 +33,29 @@
         android:fontFamily="casual"
         android:layout_above="@id/difficultySpin"
         android:layout_centerHorizontal="true"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         />
 
     <ListView
         android:id="@+id/difficultySpin"
+        android:paddingTop="20dp"
 
         android:layout_centerHorizontal="true"
         android:layout_below="@id/settingstitleTxt"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         />
     <TextView
         android:id="@+id/tipTxt"
         android:layout_width="wrap_content"
+        android:fontFamily="casual"
         android:layout_height="wrap_content"
         android:text="Du får point flere ved svære sværhedsgrader!"
         android:layout_below="@id/difficultySpin"
         android:layout_centerHorizontal="true"
         />
 
-    <Button
-        android:id="@+id/confirmBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/tipTxt"
-        android:text="Bækræft"
-        android:layout_marginTop="10dp"
-        />
+
 
 
 </RelativeLayout>

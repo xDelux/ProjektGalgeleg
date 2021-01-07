@@ -36,9 +36,8 @@ public class StartState implements HangState {
 
     @Override
     public void startNewGame(Hangman hangman, int difficulty) {
-        if(hangman.wordListNotNull()) {
-        createWordList(hangman, difficulty);
-        }
+        if(hangman.wordList.isEmpty()) {
+        createWordList(hangman, difficulty); }
         if (hangman.wordList.isEmpty()) throw new IllegalStateException("Listen over mulige ord er tom!");
         hangman.word = hangman.wordList.get(new Random().nextInt(hangman.wordList.size()));
         updateWordVisibilty(hangman);

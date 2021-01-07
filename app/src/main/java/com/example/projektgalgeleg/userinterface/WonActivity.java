@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +35,10 @@ public class WonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_won);
+
+        final MediaPlayer nice = MediaPlayer.create(this, R.raw.nice);
+        nice.start();
+
         hgm  = Hangman.getInstance();
 
         score = findViewById(R.id.scoreTxt);
@@ -57,8 +62,8 @@ public class WonActivity extends AppCompatActivity {
                 // Her skal der sendes info til highscore listen
                 Intent highscoreIntent = new Intent(v.getContext(), HighscoreActivity.class);
                 highscoreIntent.putExtra(NAME, hgm.getPlayerName());
-                highscoreIntent.putExtra(HIGHSCORE, hgm.getScore() );
-                highscoreIntent.putExtra(DIFF, hgm.getDifficulty() );
+                highscoreIntent.putExtra(HIGHSCORE, Double.toString(hgm.getScore()) );
+                highscoreIntent.putExtra(DIFF, Integer.toString(hgm.getDifficulty()) );
                 startActivity(highscoreIntent);
             }
         });
